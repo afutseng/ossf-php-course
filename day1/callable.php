@@ -17,3 +17,13 @@ var_dump(is_callable($a));
 $numbers = [1, 3, 7, 5, 20, 89, 36, 2];
 usort($numbers, $a);
 print_r($numbers);
+
+
+$t = [123, 456, 789];
+function test(&$b)
+{
+    $b[0] = 999;
+}
+
+test($t);
+print_r($t);
