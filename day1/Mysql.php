@@ -10,14 +10,22 @@ class Mysql
 
     public function selectDb($db)
     {
-        mysql_select_db($db, $this->link)
-            or die('Can not use ' . $db . ' ' . mysql_error($this->link));
+        $db_selected = mysql_select_db($db, $this->link);
+        if (! $db_selected) {
+            throw new Exception(
+                'Can not use ' . $db . ' ' . mysql_error($this->link)
+            );
+        }
     }
 
     public function query($sql)
     {
-        return mysql_query($sql)
-            or die('Invalid query: ' . mysql_error($this->link));
+        return mysql_query($sql);
+    }
+
+    public function getError()
+    {
+        return mysql_error($this->link);
     }
 
     public function close()
