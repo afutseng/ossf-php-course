@@ -56,6 +56,11 @@ class Backend_Memcached extends Backend
 {
     protected $mmc;
 
+    public function __construct($host)
+    {
+        $this->mmc = new Memcached($host);
+    }
+
     public function save($key, $value)
     {
         $this->mmc->add($key, $value);
