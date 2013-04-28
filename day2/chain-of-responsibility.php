@@ -66,9 +66,18 @@ abstract class Promo
         return $price;
     }
 
+    public static function init()
+    {
+        $promo = new Promo_08();
+        $promo->setNext(new Promo_01())
+              ->setNext(new Promo_10());
+              return $promo;
+    }
+
     public function setNext(Promo $promo)
     {
         $this->next = $promo;
+        return $this->next;
     }
 
     abstract protected function accept($sn);
@@ -121,6 +130,8 @@ class Promo_10 extends Promo
     }
 }
 
+
+$promo = Promo::init();
 
 $cart = new Cart();
 $cart->add('A0001', 1);
