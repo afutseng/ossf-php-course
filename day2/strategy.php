@@ -44,3 +44,28 @@ abstract class Config
         return new $class_name($filepath);
     }
 }
+
+class Config_Json extends Config
+{
+    public function __construct($path)
+    {
+        $this->data = (array) json_decode(file_get_contents($path));
+    }
+
+}
+
+class Config_Ini extends Config
+{
+    public function __construct($path)
+    {
+        $this->data = parse_ini_file($path);
+    }
+}
+
+class Config_Php extends Config
+{
+    public function __construct($path)
+    {
+        $this->data = include($path);
+    }
+}
