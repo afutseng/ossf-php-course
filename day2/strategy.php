@@ -2,13 +2,13 @@
 
 $app = new Application();
 
-echo $app->run(new Config_Json('config.json'))
+echo $app->run('config.json')
     ->getAppName();
 
-echo $app->run(new Config_Php('config.php'))
+echo $app->run('config.php')
     ->getAppName();
 
-/*
+
 class Application
 {
     protected $config = [];
@@ -43,4 +43,3 @@ class Application
         return pathinfo($filepath)['extension'];
     }
 }
-*/
