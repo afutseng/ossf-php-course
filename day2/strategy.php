@@ -16,7 +16,30 @@ class Application
 
     public function run($filepath)
     {
-        $file_type = $this->getConfigType($filepath);
+        $config = Config::factory($filepath);
+
+    }
+
+
+
+    public function getAppName()
+    {
+
+    }
+
+    protected static function getConfigType($filepath)
+    {
+        return pathinfo($filepath)['extension'];
+    }
+}
+
+abstract class Config
+{
+    protected $data = [];
+
+    public static function factory($filepath)
+    {
+        $file_type = static::getConfigType($filepath);
 
         switch ($file_type) {
             case 'ini':
@@ -31,15 +54,6 @@ class Application
             default:
                 break;
         }
-    }
-
-    public function getAppName()
-    {
-
-    }
-
-    protected function getConfigType($filepath)
-    {
-        return pathinfo($filepath)['extension'];
+        return $config;
     }
 }
