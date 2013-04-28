@@ -18,14 +18,14 @@ class Cart
     {
         $price = static::$_priceTable[$sn];
 
-        $type = substr($sn, 0, 1);
-        if ('A' === $type) {
-            $price *= 0.8;
-        } elseif ('B' === $type) {
-            $price *= 0.1;
-        } elseif ('C' === $type) {
-            $price -= 10;
-        }
+        $promo08 = new Promo_08();
+        $promo01 = new Promo_01();
+        $promo10 = new Promo_10();
+
+        $promo08->setNext(new Promo_01);
+        $promo01->setNext(new Promo_10);
+
+        $price = $promo08->calculate($sn, $price);
 
         $this->_items[$sn] = [$price, $quantity];
     }
@@ -54,45 +54,70 @@ class Cart
 
 abstract class Promo
 {
+    protected $next = null;
+
     public function calculate($sn, $price)
+    {
+        if ($this->accept($sn)) {
+            return $this->getNewPrice($price);
+        } else {
+            return $this->next->calculate($sn, $price);
+        }
+        return $price;
+    }
+
+    public function setNext(Promo $promo)
+    {
+        $this->next = $promo;
+    }
+
+    abstract protected function accept($sn);
+
+    protected function getNewPrice($price)
     {
         return $price;
     }
 }
 
-class Promo_08
+class Promo_08 extends Promo
 {
-    public function calculate($sn, $price)
+    public function accept($sn)
     {
         $type = substr($sn, 0, 1);
-        if ('A' === $type) {
-            return $price * 0.8;
-        }
-        return $price;
+        return ('A' === $type);
+    }
+
+    public function getNewPrice($price)
+    {
+        return $price * 0.8;
     }
 }
 
-class Promo_01
+class Promo_01 extends Promo
 {
-    public function calculate($sn, $price)
+    public function accept($sn)
     {
         $type = substr($sn, 0, 1);
-        if ('B' === $type) {
-            return $price * 0.1;
-        }
-        return $price;
+        return ('B' === $type);
+    }
+
+    public function getNewPrice($price)
+    {
+        return $price * 0.1;
     }
 }
 
-class Promo_10
+class Promo_10 extends Promo
 {
-    public function calculate($sn, $price)
+    public function accept($sn)
     {
         $type = substr($sn, 0, 1);
-        if ('C' === $type) {
-            return $price - 10;
-        }
-        return $price;
+        return ('C' === $type);
+    }
+
+    public function getNewPrice($price)
+    {
+        return $price -= 10;
     }
 }
 
