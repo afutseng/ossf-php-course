@@ -17,6 +17,16 @@ class Cart
     public function add($sn, $quantity)
     {
         $price = static::$_priceTable[$sn];
+
+        $type = substr($sn, 0, 1);
+        if ('A' === $type) {
+            $price *= 0.8;
+        } elseif ('B' === $type) {
+            $price *= 0.1;
+        } elseif ('C' === $type) {
+            $price -= 10;
+        }
+
         $this->_items[$sn] = [$price, $quantity];
     }
 
