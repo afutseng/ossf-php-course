@@ -1,5 +1,8 @@
 <?php
 
+class NewApp extends Application
+{
+}
 
 $app1 = Application::getInstance();
 $app2 = Application::getInstance();
@@ -7,6 +10,12 @@ $app3 = Application::getInstance();
 $app4 = Application::getInstance();
 
 var_dump($app1 === $app2);
+
+$newApp = NewApp::getInstance();
+var_dump($newApp);
+
+
+
 
 class Application
 {
