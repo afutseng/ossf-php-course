@@ -10,7 +10,7 @@ var_dump($app1 === $app2);
 
 class Application
 {
-    private static $instance = null;
+    protected static $instance = null;
 
     private function __construct()
     {
