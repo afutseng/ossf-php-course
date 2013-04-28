@@ -52,6 +52,51 @@ class Cart
     }
 }
 
+abstract class Promo
+{
+    public function calculate($sn, $price)
+    {
+        return $price;
+    }
+}
+
+class Promo_08
+{
+    public function calculate($sn, $price)
+    {
+        $type = substr($sn, 0, 1);
+        if ('A' === $type) {
+            return $price * 0.8;
+        }
+        return $price;
+    }
+}
+
+class Promo_01
+{
+    public function calculate($sn, $price)
+    {
+        $type = substr($sn, 0, 1);
+        if ('B' === $type) {
+            return $price * 0.1;
+        }
+        return $price;
+    }
+}
+
+class Promo_10
+{
+    public function calculate($sn, $price)
+    {
+        $type = substr($sn, 0, 1);
+        if ('C' === $type) {
+            return $price - 10;
+        }
+        return $price;
+    }
+}
+
+
 $cart = new Cart();
 $cart->add('A0001', 1);
 $cart->add('A0002', 2);
