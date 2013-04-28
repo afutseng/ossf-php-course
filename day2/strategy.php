@@ -40,20 +40,7 @@ abstract class Config
     public static function factory($filepath)
     {
         $file_type = static::getConfigType($filepath);
-
-        switch ($file_type) {
-            case 'ini':
-                $config = new Config_Ini($filepath);
-                break;
-            case 'json':
-                $config = new Config_Json($filepath);
-                break;
-            case 'php':
-                $config = new Config_Php($filepath);
-                break;
-            default:
-                break;
-        }
-        return $config;
+        $class_name = __NAMESPACE__ . '\\Config_' . ucfirst(strtolower($file_type));
+        return new $class_name($filepath);
     }
 }
