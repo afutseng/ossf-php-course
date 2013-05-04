@@ -1,0 +1,17 @@
+{
+    "name": "afutseng/my-orm",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kun-Fu Tseng",
+            "email": "afutseng@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+
+    },
+    "autoload" : {
+        "psr-0": {"Afu": "src/"}
+    }
+}
