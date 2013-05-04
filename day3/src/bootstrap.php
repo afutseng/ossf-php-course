@@ -1,6 +1,6 @@
 <?php
 
-defined('CLASSES_PATH') || define('CLASSES_PATH', __DIR__ . '/classes');
+defined('CLASSES_PATH') || define('CLASSES_PATH', __DIR__ . '/../src');
 
 spl_autoload_register(function ($className)
 {
