@@ -1,0 +1,25 @@
+{
+    "name": "jaceju/my-app",
+    "description": "簡易 Framework 範例",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "jace ju",
+            "email": "jaceju@gmail.com"
+        }
+    ],
+    "require": {
+        "jaceju/my-orm": "dev-master",
+        "jaceju/my-framework": "dev-master"
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url":  "https://github.com/jaceju/my-orm.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/jaceju/my-framework.git"
+        }
+    ]
+}

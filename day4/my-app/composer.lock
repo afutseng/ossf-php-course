@@ -1,0 +1,168 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
+    ],
+    "hash": "e27ffbe80cda4f1f77171011c244af42",
+    "packages": [
+        {
+            "name": "corneltek/roller",
+            "version": "1.8.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/c9s/php-Roller.git",
+                "reference": "1.8.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/c9s/php-Roller/zipball/1.8.1",
+                "reference": "1.8.1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Roller": "src"
+                }
+            },
+            "notification-url": "http://packagist.org/downloads/",
+            "license": [
+                "BSD"
+            ],
+            "authors": [
+                {
+                    "name": "Yo-An Lin",
+                    "email": "cornelius.howl@gmail.com",
+                    "homepage": "http://c9s.me"
+                }
+            ],
+            "description": "High performance PHP router",
+            "homepage": "http://github.com/c9s/Roller",
+            "time": "2012-06-04 07:06:30"
+        },
+        {
+            "name": "jaceju/my-framework",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jaceju/my-framework.git",
+                "reference": "6aa0383081f56d562f41e17123230e1c51018a09"
+            },
+            "require": {
+                "corneltek/roller": "~1.8",
+                "twig/twig": "1.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Jace": "src/"
+                },
+                "classmap": [
+                    "tests/controllers"
+                ]
+            },
+            "authors": [
+                {
+                    "name": "jace ju",
+                    "email": "jaceju@gmail.com"
+                }
+            ],
+            "time": "2013-05-05 02:03:51"
+        },
+        {
+            "name": "jaceju/my-orm",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jaceju/my-orm.git",
+                "reference": "9947a506e0517481745fbabb5b0f2cf1849be635"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Jace": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jace Ju",
+                    "email": "jaceju@gmail.com"
+                }
+            ],
+            "description": "First ORM",
+            "time": "2013-05-03 14:28:31"
+        },
+        {
+            "name": "twig/twig",
+            "version": "v1.12.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fabpot/Twig.git",
+                "reference": "v1.12.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fabpot/Twig/zipball/v1.12.3",
+                "reference": "v1.12.3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.4"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.12-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Twig_": "lib/"
+                }
+            },
+            "notification-url": "http://packagist.org/downloads/",
+            "license": [
+                "BSD-3"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Armin Ronacher",
+                    "email": "armin.ronacher@active-4.com"
+                }
+            ],
+            "description": "Twig, the flexible, fast, and secure template language for PHP",
+            "homepage": "http://twig.sensiolabs.org",
+            "keywords": [
+                "templating"
+            ],
+            "time": "2013-04-08 12:40:11"
+        }
+    ],
+    "packages-dev": [
+
+    ],
+    "aliases": [
+
+    ],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "jaceju/my-orm": 20,
+        "jaceju/my-framework": 20
+    },
+    "platform": [
+
+    ],
+    "platform-dev": [
+
+    ]
+}
