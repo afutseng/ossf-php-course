@@ -21,5 +21,8 @@
             "type": "vcs",
             "url": "https://github.com/jaceju/my-framework.git"
         }
-    ]
+    ],
+    "autoload": {
+        "classmap": [ "application/controllers" ]
+    }
 }

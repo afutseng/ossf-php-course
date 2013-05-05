@@ -49,7 +49,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jaceju/my-framework.git",
-                "reference": "6aa0383081f56d562f41e17123230e1c51018a09"
+                "reference": "700034f3fd5dfa5da3d8f88d38110f6dea59e301"
             },
             "require": {
                 "corneltek/roller": "~1.8",
@@ -59,10 +59,7 @@
             "autoload": {
                 "psr-0": {
                     "Jace": "src/"
-                },
-                "classmap": [
-                    "tests/controllers"
-                ]
+                }
             },
             "authors": [
                 {
@@ -70,7 +67,7 @@
                     "email": "jaceju@gmail.com"
                 }
             ],
-            "time": "2013-05-05 02:03:51"
+            "time": "2013-05-05 07:53:54"
         },
         {
             "name": "jaceju/my-orm",
